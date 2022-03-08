@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <!-- icon -->
+    <script src="https://kit.fontawesome.com/ab96302682.js" crossorigin="anonymous"></script>
+    <style>
+        .img1 {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .text1 {
+            text-align: center;
+            font-size: 35px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gradient1 h3:after {
+            content: " ";
+            display: block;
+            background: linear-gradient(90deg, #BEDE07, #ADB4BF);
+            width: 40%;
+            height: 2px;
+            margin: 40px auto 20px auto;
+        }
+
+        .time1 {
+            text-align: right;
+            color: #ADB4BF;
+        }
+
+
+        /* ranking1 first */
+        .mx1 {
+            margin: 0% 3%;
+        }
+
+        .ranking1>div.first>b {
+            font-size: 45px;
+            color: #7c7979
+        }
+
+        .ranking1>div.first>b:after {
+            background: #BEDE07;
+        }
+
+        .ranking1>div>b:after {
+            content: " ";
+            height: 10px;
+            width: 100;
+            background: #CFD4DD;
+            display: block;
+            margin-top: -25px;
+            z-index: -1;
+        }
+
+        .ranking1>div>h4 {
+            font-size: 30px;
+            font-weight: 400;
+            margin: 10px 0;
+        }
+
+        .ranking1>div>span {
+            color: #9E9E9E;
+            display: block;
+            line-height: 25px;
+            height: 50px;
+            font-size: 15px;
+        }
+
+        .ranking1>div>div {
+            font-size: 20px;
+        }
+
+        /* ranking1 2~5 */
+        .ranking2>div>b {
+            font-size: 45px;
+            color: #7c7979
+        }
+
+        .ranking2>div.first>b:after {
+            background: #BEDE07;
+        }
+
+        .ranking2>div>b:after {
+            content: " ";
+            height: 10px;
+            width: 100;
+            background: #CFD4DD;
+            display: block;
+            margin-top: -25px;
+            z-index: -1;
+        }
+
+        .ranking2>div>h4 {
+            font-size: 30px;
+            font-weight: 400;
+            margin: 10px 0;
+        }
+
+        .ranking2>div>span {
+            color: #9E9E9E;
+            display: block;
+            line-height: 25px;
+            height: 50px;
+            font-size: 15px;
+        }
+
+        .ranking2>div>div {
+            font-size: 20px;
+        }
+
+        /* 第三部份 */
+        .top1 {
+            margin: 100px 0px 0px 0px;
+        }
+
+        /* 頁尾 */
+        .text2 {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="./img/logo1.jpg" style="height:50px;width:50px;">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#top5">票房前五名<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#total1">票房統計表</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#map1">聯絡方式及地點</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        電影票房統計表
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#total2">統計表</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 首圖 -->
+    <div class="top1">
+        <img src="./img/movie1.jpg" class="img1">
+    </div>
+
+
+
+    <!-- 排名 -->
+    <main class="mx1">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col mx-5" id="top5" name="top5">
+                    <h1 class="text-success">電影票房</h1>
+                    <p class="text-secondary">分享電影票房數據</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <section class="gradient1">
+                        <h3 class="text1">全國上映電影票房前五名</h3>
+                        <p class="time1">資料時間：2022.02.14-2022.02.20</p>
+                    </section>
+                </div>
+            </div>
+
+            <div id="A">
+                <div class="row">
+                    <!-- 排名串在這邊 -->
+                </div>
+            </div>
+
+        </div>
+
+        <div id="total1" name="total1"></div>
+        <div class="container-fluid bg-light">
+
+            <div class="row top1">
+                <div class="col">
+                    <section class="gradient1">
+                        <h3 class="text1">全國電影票房統計</h3>
+                    </section>
+                </div>
+            </div>
+
+            <table id="table_id" class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>片名</th>
+                        <th>製作單位</th>
+                        <th>發行單位</th>
+                        <th>上映戲院數量</th>
+                        <th>票房</th>
+                        <th>金額</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 串在這 -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+
+    <!-- 統計表 -->
+    <div id="total2" name="total2"></div>
+    <div class="container-fluid">
+        <div class="row top1">
+            <div class="col">
+                <section class="gradient1">
+                    <h3 class="text1">電影票房統計表</h3>
+                </section>
+            </div>
+        </div>
+
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div class="col">
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="container-fluid top1" id="map1" name="map1">
+            <div class="row text-center">
+                <div class="col-12">
+                    <img src="./img/logo.jpg">
+                </div>
+                <div class="col-12 mt-3">
+                    <i class="fa-solid fa-phone fa-2x"></i>
+                    <span class="text2">02-8522-8000</span>
+                </div>
+                <div class="col-12">
+                    <i class="fa-solid fa-address-book fa-2x"></i>
+                    <span>242030 新北市新莊區文藝路2號</span>
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14457.416426032605!2d121.4474084!3d25.0559845!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x40480accc39df980!2z5ZyL5a626Zu75b2x5Y-K6KaW6IG95paH5YyW5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1646158863115!5m2!1szh-TW!2stw"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row text-center my-3">
+                <div class="col">
+                    <a href="https://www.facebook.com/TaiwanFilmAndAudiovisualInstitute/" target="_blank"><i
+                            class="fa-brands fa-facebook fa-3x"></i></a>
+                </div>
+                <div class="col">
+                    <a href="https://www.instagram.com/tfai_tw/" target="_blank"><i
+                            class="fa-brands fa-instagram-square fa-3x"></i></a>
+                </div>
+                <div class="col">
+                    <a href="https://twitter.com/tfai_tw" target="_blank"><i
+                            class="fa-brands fa-twitter-square fa-3x"></i></a>
+                </div>
+                <div class="col">
+                    <a href="https://goo.gl/maps/xwcr8pbXL95JZTNc9" target="_blank"><i
+                            class="fa-solid fa-map-location-dot fa-3x"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container-fluid bg-dark text-white text-center pt-3">
+            <div class="row">
+                <div class="col">
+                    <p>copyright &copy; 國家電影及視聽文化中心 Taiwan Film and Audiovisual Institute. All
+                        rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+    <!-- 先載入 -->
+    <script src="./jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+    <!-- datatable格式 -->
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: 'get', // Method type
+                url: 'CORS.php', // URL
+                dataType: 'json',
+
+                success: function (res) {
+                    data = res;
+                    console.log('data', data);
+
+                    // for (let i = 0; i < data.list.length; i++) {
+                    $('#A>div').append(`
+
+                    <div class="col ranking1">
+                        <div class="first">
+                            <b>
+                                "NO.1"
+                            </b>
+                            <h4>${data.list[0]['name']}</h4>
+                            <span>${data.list[0]['issue']}</span>
+                            <div>
+                                <p>票房 : ${data.list[0]['totalTickets']} 張</p>
+                                <span>新台幣 : ${data.list[0]['totalAmounts']} 元</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ranking2">
+                        <div class="a">
+                            <b>
+                                "NO.2"
+                            </b>
+                            <h4>${data.list[1]['name']}</h4>
+                            <span>${data.list[1]['issue']}</span>
+                            <div>
+                                <p>票房 : ${data.list[1]['totalTickets']} 張</p>
+                                <span>新台幣 : ${data.list[1]['totalAmounts']} 元</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ranking2">
+                        <div class="a">
+                            <b>
+                                "NO.3"
+                            </b>
+                            <h4>${data.list[2]['name']}</h4>
+                            <span>${data.list[2]['issue']}</span>
+                            <div>
+                                <p>票房 : ${data.list[2]['totalTickets']} 張</p>
+                                <span>新台幣 : ${data.list[2]['totalAmounts']} 元</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ranking2">
+                        <div class="a">
+                            <b>
+                                "NO.4"
+                            </b>
+                            <h4>${data.list[3]['name']}</h4>
+                            <span>${data.list[3]['issue']}</span>
+                            <div>
+                                <p>票房 : ${data.list[3]['totalTickets']} 張</p>
+                                <span>新台幣 : ${data.list[3]['totalAmounts']} 元</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col ranking2">
+                        <div class="a">
+                            <b>
+                                "NO.5"
+                            </b>
+                            <h4>${data.list[4]['name']}</h4>
+                            <span>${data.list[4]['issue']}</span>
+                            <div>
+                                <p>票房 : ${data.list[4]['totalTickets']} 張</p>
+                                <span>新台幣 : ${data.list[4]['totalAmounts']} 元</span>
+                            </div>
+                        </div>
+                    </div>
+                        `);
+                    // }
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: 'get', // Method type
+                url: 'CORS.php', // URL
+                dataType: 'json',
+
+                success: function (res) {
+                    data = res;
+                    console.log('data', data);
+
+                    for (let i = 0; i < data.list.length; i++) {
+                        $('tbody').append(`
+    <tr>
+        <td>${i + 1}</td>
+        <td>${data.list[i]['name']}</td>
+        <td>${data.list[i]['produce']}</td>
+        <td>${data.list[i]['issue']}</td>
+        <td>${data.list[i]['theaterCount']}</td>
+        <td>${data.list[i]['tickets']}</td>
+        <td>${data.list[i]['amounts']}</td>
+    </tr>
+     `);
+                    }
+                    $('#table_id').DataTable();
+                }
+            });
+        });
+    </script>
+
+    <!-- chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+        integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- chart.js 1 -->
+    <script>
+        const ctx = document.getElementById('myChart');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['2012-08', '2013-08', '2014-08', '2015-08', '2016-08', '2017-08', '2018-08', '2019-08', '2020-08', '2021-08'],
+                datasets: [{
+                    label: 'EPS',
+                    data: [3.89, 4.63, 4.65, 5.37, 5.33, 6.08, 7.09, 8.26, 9.02, 11.27, 11.63],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+<!-- chart.js 2 -->
+    <script>
+        const ctx2 = document.getElementById('myChart2');
+        const myChart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['2012-08', '2013-08', '2014-08', '2015-08', '2016-08', '2017-08', '2018-08', '2019-08', '2020-08', '2021-08'],
+                datasets: [{
+                    label: 'cash',
+                    data: [1577, 1354, 1991, 1892, 643, 4224, 2805, 3358, 6051, 5370, 5819],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
